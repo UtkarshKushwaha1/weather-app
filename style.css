@@ -5,13 +5,14 @@
 }
 
 body{
-    background: #222;
+    background: #dae4e2;
 }
 
 .card{
-    width: 90%;
+    width: 900%;
+    height: 100%;
     max-width: 470px;
-    background: linear-gradient(135deg,#00feba, #5b548a);
+    background: linear-gradient(135deg,#61d6a5, #7e77ad);
     color: #fff;
     margin: 100px auto 0;
     border-radius: 20px;

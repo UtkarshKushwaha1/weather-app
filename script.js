@@ -4,9 +4,10 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
-var data
-async function checkWeather(){
-    const response = await fetch(apiUrl +city + `&appid=${apiKey}`);
+
+
+async function checkWeather(city){
+    const response = await fetch(apiUrl + city + `&appid=22c4b1dcd910c4b336662fc5fc27f443`);
     
     if(response.status==404){
         document.querySelector(".error").style.display = "block";
@@ -15,13 +16,16 @@ async function checkWeather(){
 
     else{
 
+        var data = await response.json();
+
         document.querySelector(".city").innerHTML = data.name;
-document.querySelector(".temp").innerHTML = Math.round(data.main.temp)+"°C";
-document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-document.querySelector(".wind").innerHTML = data.wind.speed+" Km/H";
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp)+"°C";
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed+" Km/H";
 
 if(data.weather[0].main == "Clouds"){
     weatherIcon.src = "images/clouds.png"
+
 }
 
 else if(data.weather[0].main == "Clear"){
@@ -42,11 +46,7 @@ else if(data.weather[0].main == "Mist"){
 document.querySelector(".weather").style.display = "block";
 document.querySelector(".error").style.display = "none";
 
-    }
-
-    
-
-    data = await response.json();
+}
 }
 
 
