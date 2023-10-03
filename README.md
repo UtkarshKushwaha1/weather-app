@@ -1,2 +1,2 @@
-# cuberto-clone
- This is a clone of website cuberto
+# Live Weather App
+ This website provides live weather information.
